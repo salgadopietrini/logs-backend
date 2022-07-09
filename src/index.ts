@@ -23,7 +23,7 @@ const server = async () => {
 
   try {
     await mongoose.connect(
-      "mongodb+srv://admin:admin@cluster0.hizvx.mongodb.net/?retryWrites=true&w=majority"
+      "mongodb+srv://user:password@cluster0.hizvx.mongodb.net/?retryWrites=true&w=majority"
     );
     console.log("connected to MongoDB");
   } catch (err) {
