@@ -8,18 +8,45 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.resolvers = void 0;
-const user_1 = require("./models/user");
+const user_1 = require("./db/models/user");
+const countries_json_1 = __importDefault(require("./assets/countries.json"));
 exports.resolvers = {
     Query: {
-        users: () => __awaiter(void 0, void 0, void 0, function* () { return yield user_1.User.find(); }),
+        users: () => __awaiter(void 0, void 0, void 0, function* () {
+            try {
+                const profile = yield user_1.User.find();
+                return profile;
+            }
+            catch (err) {
+                console.log(err);
+            }
+        }),
+        countries: () => countries_json_1.default,
     },
     Mutation: {
-        createUser: (_, { name, surname, country }) => __awaiter(void 0, void 0, void 0, function* () {
-            const profile = new user_1.User({ name, surname, country });
-            yield profile.save();
-            return profile;
+        createUser: (_, { name, surname, country, birthday }) => __awaiter(void 0, void 0, void 0, function* () {
+            try {
+                const profile = new user_1.User({ name, surname, country, birthday });
+                yield profile.save();
+                return profile;
+            }
+            catch (err) {
+                console.log(err);
+            }
+        }),
+        deleteUser: (_, { id }) => __awaiter(void 0, void 0, void 0, function* () {
+            try {
+                yield user_1.User.deleteOne({ _id: id });
+                return yield user_1.User.countDocuments({ _id: id });
+            }
+            catch (err) {
+                console.log(err);
+            }
         }),
     },
 };

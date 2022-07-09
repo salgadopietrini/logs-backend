@@ -14,29 +14,39 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const dotenv_1 = __importDefault(require("dotenv"));
-const mongoose_1 = __importDefault(require("mongoose"));
+const config_1 = __importDefault(require("./db/config"));
+const morgan_1 = __importDefault(require("morgan"));
+const helmet_1 = __importDefault(require("helmet"));
+const cors_1 = __importDefault(require("cors"));
 const apollo_server_express_1 = require("apollo-server-express");
 const resolvers_1 = require("./resolvers");
 const typeDefs_1 = require("./typeDefs");
 dotenv_1.default.config();
 const port = process.env.PORT;
+const isDevelopment = process.env.NODE_ENV === "development";
 const server = () => __awaiter(void 0, void 0, void 0, function* () {
     const app = (0, express_1.default)();
+    app.use(express_1.default.urlencoded({ extended: true }));
+    app.use((0, morgan_1.default)("dev"));
+    app.use((0, helmet_1.default)({
+        crossOriginEmbedderPolicy: !isDevelopment,
+        contentSecurityPolicy: !isDevelopment,
+    }));
+    app.use((0, cors_1.default)());
     const server = new apollo_server_express_1.ApolloServer({
         typeDefs: typeDefs_1.typeDefs,
         resolvers: resolvers_1.resolvers,
     });
     yield server.start();
     server.applyMiddleware({ app });
-    try {
-        yield mongoose_1.default.connect("mongodb+srv://admin:admin@cluster0.hizvx.mongodb.net/?retryWrites=true&w=majority");
-        console.log("connected to MongoDB");
-    }
-    catch (err) {
-        console.log(err);
-    }
+    app.get("/", (_, res) => {
+        res.send("Express/GraphQL and Typescript Server");
+    });
+    yield (0, config_1.default)();
     app.listen({ port: port }, () => {
-        console.log("Running in port", port);
+        console.log(`[server]: Server is running at http://localhost:${port}
+    You can experiment the queries and mutations at http://localhost:${port}/graphql
+    `);
     });
 });
 server();
