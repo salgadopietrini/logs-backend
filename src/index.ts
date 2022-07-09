@@ -33,11 +33,22 @@ const server = async () => {
 
   server.applyMiddleware({ app });
 
+<<<<<<< HEAD
   app.get("/", (_: Request, res: Response) => {
     res.send("Express/GraphQL and Typescript Server");
   });
 
   await db();
+=======
+  try {
+    await mongoose.connect(
+      "mongodb+srv://user:password@cluster0.hizvx.mongodb.net/?retryWrites=true&w=majority"
+    );
+    console.log("connected to MongoDB");
+  } catch (err) {
+    console.log(err);
+  }
+>>>>>>> cbe437bcd40b9f3f268bca4b2374abf6f4825768
 
   app.listen({ port: port }, () => {
     console.log(`[server]: Server is running at http://localhost:${port}
