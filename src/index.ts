@@ -4,15 +4,14 @@ import db from "./db/config";
 import morgan from "morgan";
 import helmet from "helmet";
 import cors from "cors";
-import { ApolloServer } from "apollo-server-express";
-import { resolvers } from "./resolvers";
-import { typeDefs } from "./typeDefs";
+import { apolloServer } from "./apollo/config";
 
 dotenv.config();
 
 const port = process.env.PORT;
 const isDevelopment = process.env.NODE_ENV === "development";
-const server = async () => {
+
+(async () => {
   const app: Express = express();
   app.use(express.urlencoded({ extended: true }));
   app.use(morgan("dev"));
@@ -24,14 +23,7 @@ const server = async () => {
   );
   app.use(cors());
 
-  const server = new ApolloServer({
-    typeDefs,
-    resolvers,
-  });
-
-  await server.start();
-
-  server.applyMiddleware({ app });
+  await apolloServer(app);
 
   app.get("/", (_: Request, res: Response) => {
     res.send("Express/GraphQL and Typescript Server");
@@ -44,6 +36,4 @@ const server = async () => {
     You can experiment the queries and mutations at http://localhost:${port}/graphql
     `);
   });
-};
-
-server();
+})();

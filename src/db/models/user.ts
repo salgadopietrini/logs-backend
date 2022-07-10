@@ -8,7 +8,7 @@ const schema = new mongoose.Schema({
     type: String,
     required: true,
     maxlength: 20,
-    enum: countries.map((country) => country.name),
+    enum: countries.map((country) => country.code),
   },
   birthday: { type: String, required: true, maxlength: 20 },
 });

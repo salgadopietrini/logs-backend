@@ -13,7 +13,7 @@ const schema = new mongoose_1.default.Schema({
         type: String,
         required: true,
         maxlength: 20,
-        enum: countries_json_1.default.map((country) => country.name),
+        enum: countries_json_1.default.map((country) => country.code),
     },
     birthday: { type: String, required: true, maxlength: 20 },
 });

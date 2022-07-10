@@ -18,13 +18,11 @@ const config_1 = __importDefault(require("./db/config"));
 const morgan_1 = __importDefault(require("morgan"));
 const helmet_1 = __importDefault(require("helmet"));
 const cors_1 = __importDefault(require("cors"));
-const apollo_server_express_1 = require("apollo-server-express");
-const resolvers_1 = require("./resolvers");
-const typeDefs_1 = require("./typeDefs");
+const config_2 = require("./apollo/config");
 dotenv_1.default.config();
 const port = process.env.PORT;
 const isDevelopment = process.env.NODE_ENV === "development";
-const server = () => __awaiter(void 0, void 0, void 0, function* () {
+(() => __awaiter(void 0, void 0, void 0, function* () {
     const app = (0, express_1.default)();
     app.use(express_1.default.urlencoded({ extended: true }));
     app.use((0, morgan_1.default)("dev"));
@@ -33,12 +31,7 @@ const server = () => __awaiter(void 0, void 0, void 0, function* () {
         contentSecurityPolicy: !isDevelopment,
     }));
     app.use((0, cors_1.default)());
-    const server = new apollo_server_express_1.ApolloServer({
-        typeDefs: typeDefs_1.typeDefs,
-        resolvers: resolvers_1.resolvers,
-    });
-    yield server.start();
-    server.applyMiddleware({ app });
+    yield (0, config_2.apolloServer)(app);
     app.get("/", (_, res) => {
         res.send("Express/GraphQL and Typescript Server");
     });
@@ -48,6 +41,5 @@ const server = () => __awaiter(void 0, void 0, void 0, function* () {
     You can experiment the queries and mutations at http://localhost:${port}/graphql
     `);
     });
-});
-server();
+}))();
 //# sourceMappingURL=index.js.map
