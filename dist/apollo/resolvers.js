@@ -35,9 +35,7 @@ exports.resolvers = {
         countries: () => countries_json_1.default,
         logIn: (_, args) => {
             if (args.username === username && args.password === password) {
-                const newToken = jsonwebtoken_1.default.sign({ name: args.username, password: args.password }, secret_key, {
-                    expiresIn: "72h",
-                });
+                const newToken = jsonwebtoken_1.default.sign({ name: args.username, password: args.password }, secret_key);
                 return {
                     token: newToken,
                     logged: true,

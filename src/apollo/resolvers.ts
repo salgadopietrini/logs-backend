@@ -24,10 +24,7 @@ export const resolvers = {
       if (args.username === username && args.password === password) {
         const newToken = jwt.sign(
           { name: args.username, password: args.password },
-          secret_key,
-          {
-            expiresIn: "72h",
-          }
+          secret_key
         );
         return {
           token: newToken,
