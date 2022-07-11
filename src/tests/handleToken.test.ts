@@ -74,6 +74,7 @@ describe("verifyTokenFromRequest test", () => {
     expect(action()).rejects.toThrow();
     expect(logSpy).toHaveBeenCalledWith(log);
   });
+
   it("should log a must be logged in message and throw error", () => {
     const log = chalk.red("You must be logged in to perform this operation!");
     const request = {
@@ -95,7 +96,8 @@ describe("verifyTokenFromRequest test", () => {
     expect(action()).rejects.toThrow();
     expect(logSpy).toHaveBeenCalledWith(log);
   });
-  it("should log an invalid token and throw error", () => {
+
+  it("should log an invalid token message and throw error", () => {
     const newToken1 = jwt.sign(
       { name: "another_user", password: "admin" },
       "secret_key"
