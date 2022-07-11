@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
+import { Schema, model } from "mongoose";
 import countries from "../../assets/countries.json";
 
-const schema = new mongoose.Schema({
+const schema = new Schema({
   name: { type: String, required: true, maxlength: 20 },
   surname: { type: String, required: true, maxlength: 20 },
   country: {
@@ -13,4 +13,4 @@ const schema = new mongoose.Schema({
   birthday: { type: String, required: true, maxlength: 20 },
 });
 
-export const User = mongoose.model("User", schema);
+export const User = model("User", schema);

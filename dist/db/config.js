@@ -13,18 +13,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
-const dotenv_1 = __importDefault(require("dotenv"));
-dotenv_1.default.config();
-const db_user = process.env.DB_USER;
-const db_password = process.env.DB_PASSWORD;
-const db_cluster = process.env.DB_CLUSTER;
+const env_1 = require("../env/env");
+const chalk_1 = __importDefault(require("chalk"));
 const db = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        yield mongoose_1.default.connect(`mongodb+srv://${db_user}:${db_password}@${db_cluster}.hizvx.mongodb.net/?retryWrites=true&w=majority`);
-        console.log("Connected to MongoDB");
+        yield mongoose_1.default.connect(`mongodb+srv://${env_1.db_user}:${env_1.db_password}@${env_1.db_cluster}.hizvx.mongodb.net/?retryWrites=true&w=majority`);
+        console.log(chalk_1.default.green("Connected to MongoDB"));
     }
     catch (err) {
-        console.error("Unable to connect to the database:", err);
+        console.error(chalk_1.default.red("Unable to connect to the database:"), err);
     }
 });
 exports.default = db;

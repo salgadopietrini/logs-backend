@@ -1,15 +1,11 @@
 import express, { Express, Request, Response } from "express";
-import dotenv from "dotenv";
+import { port, isDevelopment } from "./env/env";
 import db from "./db/config";
 import morgan from "morgan";
 import helmet from "helmet";
 import cors from "cors";
 import { apolloServer } from "./apollo/config";
-
-dotenv.config();
-
-const port = process.env.PORT;
-const isDevelopment = process.env.NODE_ENV === "development";
+import chalk from "chalk";
 
 (async () => {
   const app: Express = express();
@@ -26,14 +22,25 @@ const isDevelopment = process.env.NODE_ENV === "development";
   await apolloServer(app);
 
   app.get("/", (_: Request, res: Response) => {
-    res.send("Express/GraphQL and Typescript Server");
+    res.send(
+      "Express/GraphQL and Typescript Server, made by Manuel Salgado Pietrini"
+    );
   });
 
   await db();
 
   app.listen({ port: port }, () => {
-    console.log(`[server]: Server is running at http://localhost:${port}
-    You can experiment the queries and mutations at http://localhost:${port}/graphql
-    `);
+    console.log(
+      chalk.blue(
+        "Express/GraphQL and Typescript Server, made by Manuel Salgado Pietrini"
+      )
+    );
+
+    console.log(chalk.green(`Server is running at http://localhost:${port}`));
+
+    console.log(
+      chalk.yellow(`To experiment the queries and mutations at http://localhost:${port}/graphql
+    you must comment line 15 on /apollo/config.ts, disabling token auth`)
+    );
   });
 })();

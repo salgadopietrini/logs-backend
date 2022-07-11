@@ -1,6 +1,6 @@
 import { gql } from "apollo-server-express";
 
-export const typeDefs = gql`
+const typeDefs = gql`
   type User {
     id: ID!
     name: String!
@@ -41,18 +41,4 @@ export const typeDefs = gql`
   }
 `;
 
-export interface LogInArgs {
-  username: string;
-  password: string;
-}
-
-export interface CreateUserArgs {
-  name: string;
-  surname: string;
-  country: string;
-  birthday: string;
-}
-
-export interface DeleteUserArgs {
-  id: string;
-}
+export default typeDefs;
