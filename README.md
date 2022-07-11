@@ -21,28 +21,34 @@ Application developed using **NodeJS** with **TypeScript**, **Apollo Server(Grap
 
 ## How to use
 
-1. First, you have to configure a MongoDB cluster to run locally, if you already have this, you can skip this instructions:
+1. First, you have to configure a MongoDB cluster to run locally, if you already have this, you can go directly to the step 7 of these instructions:
 
-   - Go to [mongodb.com](https://www.mongodb.com/) and create a new Atlas account (**Try free** button on the right upper corner), wait for the verification email and then log in to your account.
-   - Once in the main view, click the **Build a Database** button in the center of the screen.
+   1. Go to [mongodb.com](https://www.mongodb.com/) and create a new Atlas account (**Try free** button on the right upper corner), wait for the verification email and then log in to your account.
+   2. Once in the main view, click the **Build a Database** button in the center of the screen.
 
-   - In the next view, click **Create** in the rightmost option (free, shared service)
+   3. In the next view, click **Create** in the rightmost option (free, shared service)
 
-   - In the next view, leave default options, take note on the cluster name and click on the footer **Create Cluster** button.
+   4. In the next view, leave default options and click on the footer button **Create Cluster**.
 
-   ![clustername](/assets/clustername.png)
+   5. You will be directed to the **Security Quickstart** page. For the first option create an user and take the note of the username and password chosen.
 
-   - You will be directed to the **Security Quickstart** page. For the first option create an user and take the note of the username and password chosen.
+      ![credentials](/assets/credentials.png)
 
-   ![credentials](/assets/credentials.png)
+   6. For the second option, choose leave the default option (**My Local Environment**), click on **Add My Current IP Adress** and then on **Finish and Close**. You cluster will deploy, you might have to wait a few minutes for this process to finish.
 
-   - For the second option, choose leave the default option (**My Local Environment**), click on **Add My Current IP Adress** and then on **Finish and Close**. You cluster will deploy, you might have to wait a few minutes for this process to finish.
+      ![localenvironment](/assets/localenvironment.png)
 
-   ![localenvironment](/assets/localenvironment.png)
+   7. **Done!** You have configured your cluster and it should look something like the following image. Before closing the tab, you need to take note on the path of your cluster. Click the **Connect** button in your cluster.
 
-   -**Done!** You have configured your cluster and it should look something like the following image, you can now close your browser.
+      ![finishedprocess](/assets/finishedprocess.png)
 
-   ![finishedprocess](/assets/finishedprocess.png)
+   8. Now select the second option, **Connect your application**.
+
+      ![connecttoapp](/assets/connecttoapp.png)
+
+   9. In the next screen, for the first option choose Nose.js driver and the version 4.1 or later. A string will appear in your second option. Take note on the substring shown on the next picture (the one between the **@** and **.mongodb...**). This is your cluster path, take note of that as it will be important to configure your environmental variables.
+
+      ![clusterpath](/assets/clusterpath.png)
 
 2. Clone the repository.
 
@@ -50,20 +56,26 @@ Application developed using **NodeJS** with **TypeScript**, **Apollo Server(Grap
 git clone https://github.com/salgadopietrini/mosano-backend.git
 ```
 
-3. Create a file named `.env` in the root directory. Accesses it and configure the following environmental variables:
+3. Create a file named `.env` in the root directory. Access it and configure the following environmental variables:
 
 ```
     PORT=8000
     NODE_ENV=development
     DB_USER=<username defined when creating the MongoDB cluster>
     DB_PASSWORD=<password defined when creating the MongoDB cluster>
-    DB_CLUSTER=<cluster name defined when creating the MongoDB cluster, in lowercases>
+    DB_CLUSTER=<cluster path retrieved on the step 1.9>
     LOGIN_USER=<username you'll use to access the application from the frontend web app, can be any type of string>
     LOGIN_PASS=<password you'll use to access the application from the frontend web app, can be any type of string>
     SECRET_KEY=<define a secret key, can also be any type of string>
 ```
 
-**Note:** Make sure your `PORT` variable is set to `8000`, it's important for the frontend app to work correctly
+**Note:** Make sure your `PORT` variable is set to `8000`, it's important for the frontend app to work correctly.
+
+Your enviromental variables should look something like this:
+
+![env](/assets/env.png)
+
+image.png
 
 4. Run `npm install` to install the node modules
 

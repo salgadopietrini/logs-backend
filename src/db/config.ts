@@ -5,7 +5,7 @@ import chalk from "chalk";
 const db = async () => {
   try {
     await mongoose.connect(
-      `mongodb+srv://${db_user}:${db_password}@${db_cluster}.hizvx.mongodb.net/?retryWrites=true&w=majority`
+      `mongodb+srv://${db_user}:${db_password}@${db_cluster}.mongodb.net/?retryWrites=true&w=majority`
     );
     console.log(chalk.green("Connected to MongoDB"));
   } catch (err) {
