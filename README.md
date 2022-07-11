@@ -4,7 +4,7 @@ Application developed using **NodeJS** with **TypeScript**, **Apollo Server(Grap
 
 #### Features:
 
-- Generate and verify tokens for authentication, using the library jsonwebtoken, protecting every query GraphQL API call.
+- Generate and verify tokens for authentication, using the library jsonwebtoken, protecting every GraphQL API call.
 - All querys and mutations are done with GraphQL, using Apollo Server.
 - Uses moongose to store, retrieve and delete information about users.
 - Retrieves a static list of countries, stored locally.
