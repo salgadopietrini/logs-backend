@@ -36,7 +36,6 @@ const apolloServer = (app) => __awaiter(void 0, void 0, void 0, function* () {
             const operation = req.body.operationName;
             if (!token) {
                 if (operation === "LogIn") {
-                    console.log("checking credentials...");
                     if (req.body.variables.username === username &&
                         req.body.variables.password === password) {
                         return;

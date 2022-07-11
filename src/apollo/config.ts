@@ -31,7 +31,6 @@ export const apolloServer = async (app: express.Express) => {
 
       if (!token) {
         if (operation === "LogIn") {
-          console.log("checking credentials...");
           if (
             req.body.variables.username === username &&
             req.body.variables.password === password
