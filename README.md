@@ -13,7 +13,7 @@ Application developed using **NodeJS** with **TypeScript**, **Apollo Server(Grap
 
 - A single unit test (for the handleToken module) was implemented to showcase knowledge in the matter.
 - For simplification, the authentication method doesn't encript the password and the credentials (username and password) are configured as environment variables, there are not username or password restrictions.
-- To experiment with the queries and mutations using the Apollo Studio, the authentication headers must be disabled, the easiest way to do this is commenting line 15 on `/src/apollo/config.ts` (note that you should uncomment it so that the frontend authentication to works correctly).
+- To experiment with the queries and mutations using the Apollo Studio, the authentication headers must be disabled, the easiest way to do this is commenting line 15 on `/src/apollo/config.ts` (note that you should uncomment it so that the frontend authentication works correctly).
 
 ```
 15      // context: verifyTokenFromRequest,
