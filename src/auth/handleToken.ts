@@ -5,7 +5,7 @@ import { Token, LogInArgs } from "../types/types";
 import chalk from "chalk";
 
 export const verifyTokenFromRequest = ({ req }: { req: Request }) => {
-  const token = req.headers.authorization?.replace("Bearer ", "");
+  const token = req.headers.authorization!.replace("Bearer ", "");
   const operation = req.body.operationName;
 
   if (!token) {
