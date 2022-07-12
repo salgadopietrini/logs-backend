@@ -34,7 +34,7 @@ Application developed using **NodeJS** with **TypeScript**, **Apollo Server(Grap
 
       ![credentials](/assets/credentials.png)
 
-   6. For the second option, leave the default option (**My Local Environment**), click on **Add My Current IP Adress** and then on **Finish and Close**. You cluster will deploy, you might have to wait a few minutes for this process to finish.
+   6. For the second option, leave the default option (**My Local Environment**), click on **Add My Current IP Adress** and then on **Finish and Close**. Your cluster will deploy, you might have to wait a few minutes for this process to finish.
 
       ![localenvironment](/assets/localenvironment.png)
 
