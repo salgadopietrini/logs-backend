@@ -46,7 +46,7 @@ Application developed using **NodeJS** with **TypeScript**, **Apollo Server(Grap
 
       ![connecttoapp](/assets/connecttoapp.png)
 
-   9. In the next screen, for the first option choose Nose.js driver and the version 4.1 or later. A string will appear in your second option. Notice the substring shown on the next picture (the one between the **@** and **.mongodb...**). This is your cluster path, take note of that as it will be important to configure your environmental variables.
+   9. In the next screen, for the first option choose Nose.js driver and the version 4.1 or later. A string will appear in your second option. Notice the substring shown on the next picture (the one between the **@** and **.mongodb...**). This is your cluster path, take note of that as it will be important to configure your environment variables.
 
       ![clusterpath](/assets/clusterpath.png)
 
@@ -56,7 +56,7 @@ Application developed using **NodeJS** with **TypeScript**, **Apollo Server(Grap
 git clone https://github.com/salgadopietrini/mosano-backend.git
 ```
 
-3. Create a file named `.env` in the root directory. Access it and configure the following environmental variables:
+3. Create a file named `.env` in the root directory. Access it and configure the following environment variables:
 
 ```
     PORT=8000
@@ -71,11 +71,10 @@ git clone https://github.com/salgadopietrini/mosano-backend.git
 
 **Note:** Make sure your `PORT` variable is set to `8000`, it's important for the frontend app to work correctly.
 
-Your enviromental variables should look something like this:
+Your environment variables should look something like this:
 
 ![env](/assets/env.png)
 
-image.png
 
 4. Run `npm install` to install the node modules
 
@@ -83,7 +82,7 @@ image.png
 npm install
 ```
 
-5. Run `npm run build`. This will create a dist folder where the cmopiled code from TS is stored.
+5. Run `npm run build`. This will create a dist folder where the compiled code from TS is stored.
 
 ```
 npm run build
