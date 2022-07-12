@@ -46,7 +46,7 @@ Application developed using **NodeJS** with **TypeScript**, **Apollo Server(Grap
 
       ![connecttoapp](/assets/connecttoapp.png)
 
-   9. In the next screen, for the first option choose Nose.js driver and the version 4.1 or later. A string will appear in your second option. Take note on the substring shown on the next picture (the one between the **@** and **.mongodb...**). This is your cluster path, take note of that as it will be important to configure your environmental variables.
+   9. In the next screen, for the first option choose Nose.js driver and the version 4.1 or later. A string will appear in your second option. Notice the substring shown on the next picture (the one between the **@** and **.mongodb...**). This is your cluster path, take note of that as it will be important to configure your environmental variables.
 
       ![clusterpath](/assets/clusterpath.png)
 
