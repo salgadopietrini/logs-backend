@@ -1,12 +1,12 @@
-# mosano-backend is a backend solution created using NodeJS, Apollo Server(GraphQL), MongoDB (with mongoose as the ORM) with TypeScript
+# mosano-backend is a backend solution created using NodeJS, Apollo Server(GraphQL) and MongoDB (with mongoose as the ORM) with TypeScript
 
-Application developed using **NodeJS** with **TypeScript**, **Apollo Server(GraphQL)**, **MongoDB** (with **mongoose** as the ORM).
+Application developed using **NodeJS** with **TypeScript**, **Apollo Server(GraphQL)** and **MongoDB** (with **mongoose** as the ORM).
 
 #### Features:
 
 - Generate and verify tokens for authentication, using the library jsonwebtoken, protecting every GraphQL API call.
 - All querys and mutations are done with GraphQL, using Apollo Server.
-- Uses moongose to store, retrieve and delete information about users.
+- Uses MongoDB with moongose to store, retrieve and delete information about users.
 - Retrieves a static list of countries, stored locally.
 
 #### Notes:
@@ -21,7 +21,7 @@ Application developed using **NodeJS** with **TypeScript**, **Apollo Server(Grap
 
 ## How to use
 
-1. First, you have to configure a MongoDB cluster to run locally, if you already have this, you can go directly to the step 7 of these instructions:
+1. First, you have to configure a MongoDB cluster to run locally, if you already have this, you can go directly to the step VII of these instructions:
 
    1. Go to [mongodb.com](https://www.mongodb.com/) and create a new Atlas account (**Try free** button on the right upper corner), wait for the verification email and then log in to your account.
    2. Once in the main view, click the **Build a Database** button in the center of the screen.
@@ -30,7 +30,7 @@ Application developed using **NodeJS** with **TypeScript**, **Apollo Server(Grap
 
    4. In the next view, leave default options and click on the footer button **Create Cluster**.
 
-   5. You will be directed to the **Security Quickstart** page. For the first option create an user and take the note of the username and password chosen.
+   5. You will be directed to the **Security Quickstart** page. For the first option create an user and take note of the username and password chosen.
 
       ![credentials](/assets/credentials.png)
 
