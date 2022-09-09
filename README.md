@@ -1,4 +1,4 @@
-# mosano-backend is a backend solution created using NodeJS, Apollo Server(GraphQL) and MongoDB (with mongoose as the ORM) with TypeScript
+# logs-backend is a backend solution created using NodeJS, Apollo Server(GraphQL) and MongoDB (with mongoose as the ORM) with TypeScript
 
 Application developed using **NodeJS** with **TypeScript**, **Apollo Server(GraphQL)** and **MongoDB** (with **mongoose** as the ORM).
 
